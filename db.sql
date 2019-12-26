@@ -6,6 +6,9 @@ psql insurance
 
 grant all privileges on database insurance to insuranceUser;
 grant all privileges on usertable to insuranceUser;
+grant all privileges on stateMaster to insuranceUser;
+grant all privileges on cityMaster to insuranceUser;
+grant all privileges on pinCodeMaster to insuranceUser;
 
 
 CREATE TABLE usertable (  

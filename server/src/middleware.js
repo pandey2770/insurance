@@ -4,6 +4,8 @@ const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const users = require("./routes/users");
+const uploads = require("./routes/uploads");
+
 process.env.TZ = "Asia/Calcutta";
 const app = express();
 
@@ -34,6 +36,7 @@ function loadMiddleWares(app, express) {
   app.get("/api/user", users);
   app.get("/api/logout", isAuthenticated, users);
   app.post("/api/login", users);
+  app.post("/api/uploadStateFile", isAuthenticated, uploads);
 }
 
 module.exports = loadMiddleWares;

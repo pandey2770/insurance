@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const users = require("./routes/users");
 const uploads = require("./routes/uploads");
-
+const staticData = require("./routes/staticData");
 process.env.TZ = "Asia/Calcutta";
 const app = express();
 
@@ -35,6 +35,8 @@ function loadMiddleWares(app, express) {
 
   app.get("/api/user", users);
   app.get("/api/logout", isAuthenticated, users);
+  app.get("/api/getCityName", isAuthenticated, staticData);
+  app.get("/api/getPinCode", isAuthenticated, staticData);
   app.post("/api/login", users);
   app.post("/api/uploadStateFile", isAuthenticated, uploads);
 }

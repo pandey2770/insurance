@@ -28,7 +28,7 @@ route.post("/api/uploadStateFile", async (req, res) => {
       const result = XLSX.utils.sheet_to_json(
         workbook.Sheets[sheet_name_list[i]]
       );
-      uploadResult = await uploadStateMaster(result);
+      uploadResult = await uploadCityMaster(result);
     }
   });
   return;

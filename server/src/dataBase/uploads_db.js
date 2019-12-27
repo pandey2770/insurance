@@ -18,7 +18,7 @@ async function uploadCityMaster(data) {
     const id = uuidv1();
 
     const query = {
-      text: `INSERT INTO stateMaster (id,cityCode,cityName,stateCode)
+      text: `INSERT INTO citymaster (id,cityCode,cityName,stateCode)
         VALUES ($1, $2, $3,$4)`,
       values: [id, data[i].CITYCODE, data[i].CITYNAME, data[i].STATECODE]
     };
@@ -30,9 +30,9 @@ async function uploadPinCodeMaster(data) {
   for (let i = 0; i < data.length; i++) {
     const id = uuidv1();
     const query = {
-      text: `INSERT INTO stateMaster (id,stateName,cityName,pinCode)
+      text: `INSERT INTO pincodemaster (id,stateName,cityName,pinCode)
         VALUES ($1, $2, $3,$4)`,
-      values: [id, data[i].STATENAME, data[i].CITYNAME, data[i].PINCODE]
+      values: [id, data[i]["State Name"], data[i]["City Name"], data[i].PINCODE]
     };
     await DB.mutate(query);
   }
